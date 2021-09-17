@@ -8,12 +8,9 @@
     top: 10vh;
     border-radius: 20px;
     border: 3vw solid rgb(229, 233, 1);
-    animation: slide 1.5s forwards;
+    transition: left 2s;
 }
 
-@keyframes slide {
-    100% { left: 7vw; }
-}
 
 #welcomeDialogText
 {
