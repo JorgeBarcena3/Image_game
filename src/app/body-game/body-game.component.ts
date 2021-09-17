@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
+import { Injectable,ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-body-game',
   templateUrl: './body-game.component.html',
   styleUrls: ['./body-game.component.css']
 })
-export class BodyGameComponent implements OnInit {
+export class BodyGameComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  playButtonText = "PLAY";
+  
+  playGame()
+  {
+    alert("PlayGame");
   }
 
-  loadComponent() {
-    this.container.clear(); 
-    const factory: ComponentFactory = this.resolver.resolveComponentFactory(AlertComponent);
-    this.componentRef: ComponentRef = this.container.createComponent(factory);
-  }
+  
 
 }

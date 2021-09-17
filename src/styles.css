@@ -2,12 +2,18 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@font-face {
+	font-family: TypoGraphica;
+	src: url("./assets/fonts/TypoGraphica_demo.otf");
+  }
 
-html, body, div {
+html, body, div, button {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
     overflow: hidden;
+	font-family: "TypoGraphica";
+	letter-spacing: 1.5px;
 }

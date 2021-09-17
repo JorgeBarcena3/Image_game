@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderGameComponent } from './header-game/header-game.component';
 import { FooterGameComponent } from './footer-game/footer-game.component';
 import { BodyGameComponent } from './body-game/body-game.component';
-import { MessageDialogComponent } from './message-dialog/message-dialog.component';
+import { WeolcomeDialogComponent } from './weolcome-dialog/weolcome-dialog.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog.componen
     HeaderGameComponent,
     FooterGameComponent,
     BodyGameComponent,
-    MessageDialogComponent
+    WeolcomeDialogComponent,
   ],
   imports: [
     BrowserModule,
