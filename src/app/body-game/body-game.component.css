@@ -1,0 +1,8 @@
+#bodyContainer
+{
+    position: absolute;
+    background-color:red;
+    height: 80vh;
+    width: 100%;
+    top: 10vh;
+}
