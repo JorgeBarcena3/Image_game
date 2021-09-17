@@ -13,7 +13,9 @@ export class BodyGameComponent  {
   
   playGame()
   {
-    alert("PlayGame");
+    
+    alert(document.getElementById("welcomeDialogText"));
+    console.log(document.getElementById("welcomeDialogText"));
   }
 
   

@@ -1,0 +1,28 @@
+#welcomeDialogContainer
+{
+    background-color: rgb(1, 131, 170);
+    position: absolute;
+    width: 80vw;
+    height: 40vh;
+    left: -200vw;
+    top: 10vh;
+    border-radius: 20px;
+    border: 3vw solid rgb(229, 233, 1);
+    animation: slide 1.5s forwards;
+}
+
+@keyframes slide {
+    100% { left: 7vw; }
+}
+
+#welcomeDialogText
+{
+    margin: 2vw;
+    height: 37vh;
+    font-size: 2.2vh;
+    color: white;
+    overflow: hidden;
+}
+
+
+
