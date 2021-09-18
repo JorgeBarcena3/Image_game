@@ -1,5 +1,6 @@
 {
         
-    "timeAnimationToSpawn": 200
+    "timeAnimationToSpawn": 200,
+    "timeStartGame": 0
     
 }

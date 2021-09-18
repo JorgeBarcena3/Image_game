@@ -1,0 +1,23 @@
+#playButtonContainer
+{
+    position: absolute;
+    bottom: 5vh;
+    width: 100%;
+    left: -200vw;
+    transition: left 2s;
+
+}
+
+#playButtonContainer > button
+{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:2em;
+    text-decoration:none;
+    border: none;
+    color:#FFFFFF;
+    background-color:#f14e4e;
+    text-align:center;
+    font-size: 10vw;
+}

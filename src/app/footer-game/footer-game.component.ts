@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import LANG from '../../assets/lang.json'
 
 @Component({
   selector: 'app-footer-game',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterGameComponent {
 
-  copyrightText = "Copyright © 2021 - Jorge Bárcena Lumbreras";
+  copyrightText = LANG.copyrightText;
 
   constructor ()
   {}

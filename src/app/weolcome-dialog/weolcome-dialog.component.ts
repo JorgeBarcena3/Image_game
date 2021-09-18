@@ -1,22 +1,33 @@
 import { Component, AfterViewInit } from '@angular/core';
 import CONFIG from '../../assets/confing.json'
+import LANG from '../../assets/lang.json'
+import { Utils } from '../utils/utils';
 
 @Component({
   selector: 'app-weolcome-dialog',
   templateUrl: './weolcome-dialog.component.html',
   styleUrls: ['./weolcome-dialog.component.css']
 })
-export class WeolcomeDialogComponent implements AfterViewInit {
+export class WeolcomeDialogComponent implements AfterViewInit  {
 
-  ngAfterViewInit () {
-    let welcomeDialogTest = document.getElementById("welcomeDialogContainer");
+  welcomeDialog: string;
 
-    setTimeout(() => {  
-      if( welcomeDialogTest ) welcomeDialogTest.style.left = "7vw";      
-    }, CONFIG.timeAnimationToSpawn);    
-
+  constructor()
+  {
+    this.welcomeDialog = "";
   }
 
-  welcomeDialog = "WELCOME TO THE IMAGES GAME!<br><br> Get the highest possible score, for this you must type the first letter of the images that appear on the screen. <br> But beware! <br> If the images reach the right side of the screen, your game will end."
+  ngAfterViewInit ()
+  {
+    setTimeout(() => {
+      this.welcomeDialog = LANG.howToPlayText;
+    }, 0); 
+  }
+
+  moveTo(position : string)
+  {
+    Utils.moveToTheLeft("welcomeDialogContainer", position);
+  };
+
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import LANG from '../../assets/lang.json'
 
 @Component({
   selector: 'app-header-game',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderGameComponent  {
 
-  gameName = 'Images Game';
+  gameName = LANG.appTitle;
 
   constructor() {   }
 
