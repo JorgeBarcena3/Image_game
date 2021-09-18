@@ -3,6 +3,7 @@ import { ButtonComponent } from '../button/button.component';
 import {  Utils } from "../utils/utils"
 import { WeolcomeDialogComponent } from '../weolcome-dialog/weolcome-dialog.component';
 import CONFIG from '../../assets/confing.json'
+import { PhaserContainerComponent } from '../phaser-container/phaser-container.component';
 
 enum SCREENS {
   WELCOME,
@@ -24,13 +25,18 @@ export class BodyGameComponent implements AfterViewInit {
 
   welcomePanelComponent! : ComponentRef<WeolcomeDialogComponent>;
   startButtonComponent! : ComponentRef<ButtonComponent>;
+  phaserContainerComponent! : ComponentRef<PhaserContainerComponent>;
   
   initComponents()
   {
     console.log(this.container);
     this.welcomePanelComponent = Utils.createComponent(this.componentFactoryResolver, this.container, WeolcomeDialogComponent);
+
     this.startButtonComponent = Utils.createComponent(this.componentFactoryResolver, this.container, ButtonComponent);
-    this.startButtonComponent.instance.callback = this.playGame;
+    this.startButtonComponent.instance.callback = () => { this.playGame(); };
+
+    this.phaserContainerComponent = Utils.createComponent(this.componentFactoryResolver, this.container, PhaserContainerComponent);
+
   }
 
   setScreen(screen : SCREENS)
@@ -43,6 +49,12 @@ export class BodyGameComponent implements AfterViewInit {
         this.startButtonComponent.instance.moveTo("27vw");
         break;
       }
+      case SCREENS.GAMING:
+      {
+        this.welcomePanelComponent.instance.moveTo("-200vw");
+        this.startButtonComponent.instance.moveTo("-200vw");
+        this.phaserContainerComponent.instance.moveTo("0vw");
+      }
     }
   }
 
@@ -52,14 +64,14 @@ export class BodyGameComponent implements AfterViewInit {
     this.cdRef.detectChanges()
     setTimeout(() => {
       this.setScreen(SCREENS.WELCOME);
+      // this.setScreen(SCREENS.GAMING);
     }, CONFIG.timeStartGame); 
   }
 
   playGame()
   { 
-    
-    Utils.moveToTheLeft("playButtonContainer", "200vw");
-    Utils.moveToTheLeft("welcomeDialogContainer", "200vw");
+
+    this.setScreen(SCREENS.GAMING);
 
   }
 

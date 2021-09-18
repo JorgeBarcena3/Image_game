@@ -7,8 +7,9 @@ import { HeaderGameComponent } from './header-game/header-game.component';
 import { FooterGameComponent } from './footer-game/footer-game.component';
 import { BodyGameComponent } from './body-game/body-game.component';
 import { WeolcomeDialogComponent } from './weolcome-dialog/weolcome-dialog.component';
-import { GameContainerComponent } from './game-container/game-container.component';
 import { ButtonComponent } from './button/button.component';
+import { PhaserContainerComponent } from './phaser-container/phaser-container.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { ButtonComponent } from './button/button.component';
     FooterGameComponent,
     BodyGameComponent,
     WeolcomeDialogComponent,
-    GameContainerComponent,
     ButtonComponent,
+    PhaserContainerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

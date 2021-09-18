@@ -1,0 +1,10 @@
+#phaserContainer
+{
+    height: 60vh;
+    width: 100vw;
+    background-color: red;
+    position: absolute;
+    left: -200vw;
+    transition: left 2s;
+    top: 10vh;
+}
