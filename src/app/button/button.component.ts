@@ -10,7 +10,7 @@ import LANG from '../../assets/lang.json'
 })
 export class ButtonComponent implements AfterViewInit {
 
-  @Input() callback!: Function;
+  callback!: Function;
 
   playButtonText! : string;
   
