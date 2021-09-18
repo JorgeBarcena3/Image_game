@@ -13,6 +13,7 @@ export class PhaserContainerComponent implements OnInit {
 
   phaserGame!: Phaser.Game;
   config!: Phaser.Types.Core.GameConfig;
+  imageSRC! : string;
 
   constructor(private myAPIController: APIController) 
   {
@@ -29,7 +30,14 @@ export class PhaserContainerComponent implements OnInit {
       }
     };
 
-    myAPIController.initApiControler();
+    this.initAPiController();
+
+  }
+
+  private async initAPiController()
+  {
+    await this.myAPIController.initApiControler();
+    this.imageSRC = this.myAPIController.getImageFromPool();
   }
 
   moveTo(position : string)
