@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Utils } from '../utils/utils';
 import Phaser from 'phaser';
 import { MainScene } from '../Game/MainScene';
 import { APIController } from '../Game/APIController';
+import LANG from '../../assets/lang.json'
 
 @Component({
   selector: 'app-phaser-container',
   templateUrl: './phaser-container.component.html',
   styleUrls: ['./phaser-container.component.css']
 })
-export class PhaserContainerComponent implements OnInit {
+export class PhaserContainerComponent {
   
 
   phaserGame!: Phaser.Game;
   config!: Phaser.Types.Core.GameConfig;
   scene! : MainScene;
   callbackFinish! : Function;
+  placeholder_text : string;
 
   constructor(private myAPIController: APIController) 
   {
-
+    this.placeholder_text = LANG.placeholder_input;
   }
 
   moveTo(position : string)
@@ -27,10 +29,13 @@ export class PhaserContainerComponent implements OnInit {
     Utils.moveToTheLeft("phaserContainer", position);
   };
 
-  async ngOnInit() {
+  typeLetter(event: KeyboardEvent)
+  {
+    let value = (<HTMLInputElement>event.target).value;
 
-    
+    this.scene.typeLetter(value);
 
+    (<HTMLInputElement>document.getElementById("input_letter")).value = "";   
   }
 
   public async play()
@@ -55,8 +60,8 @@ export class PhaserContainerComponent implements OnInit {
     this.phaserGame = new Phaser.Game(this.config);
   }
 
-  finishGame() {
+  finishGame(points : number) {
     this.phaserGame.destroy(true);
-    this.callbackFinish();
+    this.callbackFinish(points);
   }
 }

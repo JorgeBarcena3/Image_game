@@ -1,4 +1,4 @@
-#playButtonContainer
+.playButtonContainer
 {
     position: absolute;
     bottom: 5vh;
@@ -8,7 +8,7 @@
 
 }
 
-#playButtonContainer > button
+.playButtonContainer > button
 {
     display:inline-block;
     padding:0.3em 1.2em;

@@ -49,7 +49,8 @@ export class APIController {
 
         let imageInfo = this.imagesData[index];
         this.imagesData.splice(index, 1);
-        return APIController.GET_IMAGE + imageInfo._id;
+        imageInfo.img_URL = APIController.GET_IMAGE + imageInfo._id;
+        return imageInfo;
 
     }
 

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderGameComponent } from './header-game/header-game.component';
 import { FooterGameComponent } from './footer-game/footer-game.component';
 import { BodyGameComponent } from './body-game/body-game.component';
-import { WeolcomeDialogComponent } from './weolcome-dialog/weolcome-dialog.component';
+import { DialogComponent } from './dialog-panel/dialog-panel.component';
 import { ButtonComponent } from './button/button.component';
 import { PhaserContainerComponent } from './phaser-container/phaser-container.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderGameComponent,
     FooterGameComponent,
     BodyGameComponent,
-    WeolcomeDialogComponent,
+    DialogComponent,
     ButtonComponent,
     PhaserContainerComponent,
   ],

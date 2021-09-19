@@ -2,5 +2,8 @@
     "copyrightText": "Copyright © 2021 - Jorge Barcena Lumbreras",
     "appTitle": "Images Game",
     "playButtonText": "Play",
-    "howToPlayText": "WELCOME TO THE IMAGES GAME!<br><br> Get the highest possible score, for this you must type the first letter of the images that appear on the screen. <br> But beware! <br> If the images reach the right side of the screen, your game will end."
+    "howToPlayText": "WELCOME TO THE IMAGES GAME!<br><br> Get the highest possible score, for this you must type the first letter of the images that appear on the screen. <br> But beware! <br> If the images reach the right side of the screen, your game will end.",
+    "placeholder_input": "Letter",
+    "restartButtonText": "Restart",
+    "pointsText": "Your score is: <br>"
 }

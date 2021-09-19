@@ -2,9 +2,33 @@
 {
     height: 500px;
     width: 100vw;
-    /* background-color: red; */
     position: absolute;
     left: -200vw;
     transition: left 2s;
     top: 0vh;
 }
+
+#inputTextContainer
+{
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    transition: left 2s;
+    bottom: 0vh;
+    background-color: red;
+    text-align: center;
+}
+
+.Input-text {
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    font-family: inherit;
+    font-size: var(--inputFontSize);
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    height: 7vh;
+    width: 5em;
+    text-align: center;
+  }

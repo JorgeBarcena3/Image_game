@@ -8,6 +8,10 @@
     "m_speed": 0.1,
     "respawnIntialTime": 6,
     "respawnMultiplicator": 1,
-    "respawnLimitTime": 2
+    "respawnLimitTime": 2,
+    "show_names": true,
+    "finishGame": true,
+    "wrongTriesMult": 2,
+    "leftCorrectMult": 1
     
 }
