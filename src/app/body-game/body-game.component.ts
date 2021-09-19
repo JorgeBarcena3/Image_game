@@ -1,8 +1,9 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import {  Utils } from "../utils/utils"
-import { WeolcomeDialogComponent } from '../weolcome-dialog/weolcome-dialog.component';
-import CONFIG from '../../assets/confing.json'
+import { DialogComponent } from '../dialog-panel/dialog-panel.component';
+import LANG from '../../assets/lang.json'
+import CONFIG from '../../assets/config.json'
 import { PhaserContainerComponent } from '../phaser-container/phaser-container.component';
 
 enum SCREENS {
@@ -23,19 +24,34 @@ export class BodyGameComponent implements AfterViewInit {
   container!: ViewContainerRef;  
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private cdRef:ChangeDetectorRef) { };
 
-  welcomePanelComponent! : ComponentRef<WeolcomeDialogComponent>;
+  welcomePanelComponent! : ComponentRef<DialogComponent>;
   startButtonComponent! : ComponentRef<ButtonComponent>;
   phaserContainerComponent! : ComponentRef<PhaserContainerComponent>;
+  finishPanelComponent! : ComponentRef<DialogComponent>;
+  finishButtonComponent! : ComponentRef<ButtonComponent>;
   
   initComponents()
   {
-    console.log(this.container);
-    this.welcomePanelComponent = Utils.createComponent(this.componentFactoryResolver, this.container, WeolcomeDialogComponent);
+    this.welcomePanelComponent = Utils.createComponent(this.componentFactoryResolver, this.container, DialogComponent);
+    this.welcomePanelComponent.instance.dialogText = LANG.howToPlayText;
+    this.welcomePanelComponent.instance.className = "welcomePanel";
 
     this.startButtonComponent = Utils.createComponent(this.componentFactoryResolver, this.container, ButtonComponent);
     this.startButtonComponent.instance.callback = () => { this.playGame(); };
+    this.startButtonComponent.instance.buttonText = LANG.playButtonText;
+    this.startButtonComponent.instance.className = "welcomeButton";
 
     this.phaserContainerComponent = Utils.createComponent(this.componentFactoryResolver, this.container, PhaserContainerComponent);
+    this.phaserContainerComponent.instance.callbackFinish = (points : number) => { this.finishGame(points); };
+
+    this.finishPanelComponent = Utils.createComponent(this.componentFactoryResolver, this.container, DialogComponent);
+    this.finishPanelComponent.instance.className = "finishPanel";
+
+    this.finishButtonComponent = Utils.createComponent(this.componentFactoryResolver, this.container, ButtonComponent);
+    this.finishButtonComponent.instance.callback = () => { this.restartGame(); };
+    this.finishButtonComponent.instance.buttonText = LANG.restartButtonText;
+    this.finishButtonComponent.instance.className = "finishButton";
+
 
   }
 
@@ -47,6 +63,9 @@ export class BodyGameComponent implements AfterViewInit {
       {
         this.welcomePanelComponent.instance.moveTo("7vw");
         this.startButtonComponent.instance.moveTo("27vw");
+        this.phaserContainerComponent.instance.moveTo("-200vw");
+        this.finishPanelComponent.instance.moveTo("-200vw");
+        this.finishButtonComponent.instance.moveTo("-200vw");
         break;
       }
       case SCREENS.GAMING:
@@ -54,6 +73,18 @@ export class BodyGameComponent implements AfterViewInit {
         this.welcomePanelComponent.instance.moveTo("-200vw");
         this.startButtonComponent.instance.moveTo("-200vw");
         this.phaserContainerComponent.instance.moveTo("0vw");
+        this.finishPanelComponent.instance.moveTo("-200vw");
+        this.finishButtonComponent.instance.moveTo("-200vw");
+        break;
+      }
+      case SCREENS.FINISH:
+      {
+        this.welcomePanelComponent.instance.moveTo("-200vw");
+        this.startButtonComponent.instance.moveTo("-200vw");
+        this.phaserContainerComponent.instance.moveTo("-200vw");
+        this.finishPanelComponent.instance.moveTo("7vw");
+        this.finishButtonComponent.instance.moveTo("22vw");
+        break;
       }
     }
   }
@@ -65,13 +96,30 @@ export class BodyGameComponent implements AfterViewInit {
     setTimeout(() => {
       this.setScreen(SCREENS.WELCOME);
       // this.setScreen(SCREENS.GAMING);
+      // this.playGame();
     }, CONFIG.timeStartGame); 
   }
 
   playGame()
   { 
-
+    
     this.setScreen(SCREENS.GAMING);
+    this.phaserContainerComponent.instance.play();
+
+  }
+
+  finishGame(points : number)
+  {
+    this.setScreen(SCREENS.FINISH);
+    this.finishPanelComponent.instance.dialogText = LANG.pointsText + "<h1>"+ Math.floor(points) + "</h1>";
+    this.finishPanelComponent.instance.setCenterText();
+    
+
+  }
+
+  restartGame()
+  {
+    this.setScreen(SCREENS.WELCOME);
 
   }
 

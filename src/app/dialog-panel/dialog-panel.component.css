@@ -1,4 +1,4 @@
-#welcomeDialogContainer
+.welcomeDialogContainer
 {
     background-color: rgb(1, 131, 170);
     position: absolute;
@@ -11,7 +11,6 @@
     transition: left 2s;
 }
 
-
 #welcomeDialogText
 {
     margin: 2vw;
@@ -20,6 +19,5 @@
     color: white;
     overflow: hidden;
 }
-
 
 

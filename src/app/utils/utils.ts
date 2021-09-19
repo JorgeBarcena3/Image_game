@@ -1,9 +1,4 @@
-import { Component, ComponentFactoryResolver, Injectable, Type, ViewContainerRef } from '@angular/core';
-
-export interface ComponentType<T = any> {
-  new (...args: any[]): T;
-}
-
+import { ComponentFactoryResolver, Injectable, Type, ViewContainerRef } from '@angular/core';
 @Injectable()
 export class Utils  {
 
@@ -14,10 +9,15 @@ export class Utils  {
     if(dialogText) dialogText.style.left = value;
   }
 
-  public static createComponent<T>(componentFactoryResolver : ComponentFactoryResolver, container: ViewContainerRef, component : ComponentType)
+  public static createComponent<T>(componentFactoryResolver : ComponentFactoryResolver, container: ViewContainerRef, component : Type<T>)
   {
     const dynamicComponentFactory = componentFactoryResolver.resolveComponentFactory(component);  
     return container.createComponent(dynamicComponentFactory);  
+  }
+
+  public static generateRandom(min : number, max : number)
+  {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
 

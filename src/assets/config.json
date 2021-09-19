@@ -1,0 +1,18 @@
+{
+        
+    "timeAnimationToSpawn": 200,
+    "timeStartGame": 0,
+    "API_lang": "es",
+    "imagesToDownload": 100,
+    "imagesScale": 0.6,
+    "m_speed": 0.2,
+    "b_speed": 5,
+    "respawnIntialTime": 2,
+    "respawnMultiplicator": 1,
+    "respawnLimitTime": 0.5,
+    "show_names": true,
+    "finishGame": true,
+    "wrongTriesMult": 2,
+    "leftCorrectMult": 1
+    
+}
