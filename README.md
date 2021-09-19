@@ -1,7 +1,7 @@
 
 # The Image Game
 
-"The Image Game" is a game developed with ** Angular ** and ** Phaser 3 **. In this game you will have to type the first letter of the name of the images that appear on the screen before the images disappear from the screen.
+"The Image Game" is a game developed with **Angular** and **Phaser 3**. In this game you will have to type the first letter of the name of the images that appear on the screen before the images disappear from the screen.
 
 ***Note:*** The game is developed for use on a mobile device. If you want to see the game in the correct way, you have to check it with the Chrome developer tools and in device mode.
 
