@@ -1,15 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'; 
 import { Observable } from "rxjs";
-import { Pictograms } from "./PictogramModel";
-import { map } from 'rxjs/operators';
-
+import CONFIG from '../../assets/confing.json'
+import { Utils } from "../utils/utils";
 
 @Injectable({ providedIn: 'root' }) 
 export class APIController {
 
     static BASE_API_URL : string = "https://api.arasaac.org/api/pictograms";
-    static GET_PICTOGRAMS_URL : string = APIController.BASE_API_URL + "/en/new/";
+    static GET_PICTOGRAMS_URL : string = APIController.BASE_API_URL + "/" + CONFIG.API_lang + "/new/";
     static GET_IMAGE : string = APIController.BASE_API_URL + "/";
 
     imagesData : any = [];
@@ -26,7 +25,6 @@ export class APIController {
                 (response) => 
                 { 
                     this.imagesData = response;  
-                    console.log(this.imagesData); 
                     resolve("Resolved");
                 }, 
                 () => 
@@ -40,30 +38,20 @@ export class APIController {
 
     /** GET Images from the server */
     private getImages(): Observable<{}> {
-        return this.http.get<{}>(APIController.GET_PICTOGRAMS_URL + 30);
+        return this.http.get<{}>(APIController.GET_PICTOGRAMS_URL + CONFIG.imagesToDownload);
     }
 
 
     public getImageFromPool()
     {
-        // debugger;
-        // Buscamos nuevas imagenes y las añadimos al pool
-        if(this.imagesData.length < 10) 
-        {
 
-        }
-
-        let index = this.getRandomInt(0, this.imagesData.length);
+        let index = Utils.generateRandom(0, this.imagesData.length);
 
         let imageInfo = this.imagesData[index];
         this.imagesData.splice(index, 1);
         return APIController.GET_IMAGE + imageInfo._id;
 
     }
-
-    private getRandomInt(min : integer, max : integer) {
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
 
     
   }

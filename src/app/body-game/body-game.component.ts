@@ -29,14 +29,13 @@ export class BodyGameComponent implements AfterViewInit {
   
   initComponents()
   {
-    console.log(this.container);
     this.welcomePanelComponent = Utils.createComponent(this.componentFactoryResolver, this.container, WeolcomeDialogComponent);
 
     this.startButtonComponent = Utils.createComponent(this.componentFactoryResolver, this.container, ButtonComponent);
     this.startButtonComponent.instance.callback = () => { this.playGame(); };
 
     this.phaserContainerComponent = Utils.createComponent(this.componentFactoryResolver, this.container, PhaserContainerComponent);
-
+    this.phaserContainerComponent.instance.callbackFinish = () => { this.finishGame(); };
   }
 
   setScreen(screen : SCREENS)
@@ -47,6 +46,7 @@ export class BodyGameComponent implements AfterViewInit {
       {
         this.welcomePanelComponent.instance.moveTo("7vw");
         this.startButtonComponent.instance.moveTo("27vw");
+        this.phaserContainerComponent.instance.moveTo("-200vw");
         break;
       }
       case SCREENS.GAMING:
@@ -70,9 +70,15 @@ export class BodyGameComponent implements AfterViewInit {
 
   playGame()
   { 
-
+    
     this.setScreen(SCREENS.GAMING);
+    this.phaserContainerComponent.instance.play();
 
+  }
+
+  finishGame()
+  {
+    this.setScreen(SCREENS.WELCOME);
   }
 
   

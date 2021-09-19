@@ -1,6 +1,13 @@
 {
         
     "timeAnimationToSpawn": 200,
-    "timeStartGame": 0
+    "timeStartGame": 0,
+    "API_lang": "es",
+    "imagesToDownload": 100,
+    "imagesScale": 0.6,
+    "m_speed": 0.1,
+    "respawnIntialTime": 6,
+    "respawnMultiplicator": 1,
+    "respawnLimitTime": 2
     
 }

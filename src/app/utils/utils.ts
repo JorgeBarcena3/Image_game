@@ -20,5 +20,10 @@ export class Utils  {
     return container.createComponent(dynamicComponentFactory);  
   }
 
+  public static generateRandom(min : number, max : number)
+  {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
 
 }
