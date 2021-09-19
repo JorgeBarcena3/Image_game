@@ -21,5 +21,13 @@ export class DialogComponent  {
     Utils.moveToTheLeft(this.className, position);
   };
 
+  setCenterText()
+  {
+    let htmlObj = document.getElementById(this.className);
+    if(htmlObj)
+      htmlObj.style.textAlign = "center";
+  }
+
+
 
 }

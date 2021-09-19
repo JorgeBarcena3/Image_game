@@ -1,6 +1,6 @@
 import { Utils } from "../utils/utils";
 import { MainScene } from "./MainScene";
-import CONFIG from '../../assets/confing.json'
+import CONFIG from '../../assets/config.json'
 
 export class ImageMovingActor
 {
@@ -18,7 +18,7 @@ export class ImageMovingActor
 
     update (time : number)
     {
-        this.sprite.x += CONFIG.m_speed * time + 1;
+        this.sprite.x += CONFIG.m_speed * time + CONFIG.b_speed;
     }
 
     getLetter() {

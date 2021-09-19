@@ -3,7 +3,7 @@ import { ButtonComponent } from '../button/button.component';
 import {  Utils } from "../utils/utils"
 import { DialogComponent } from '../dialog-panel/dialog-panel.component';
 import LANG from '../../assets/lang.json'
-import CONFIG from '../../assets/confing.json'
+import CONFIG from '../../assets/config.json'
 import { PhaserContainerComponent } from '../phaser-container/phaser-container.component';
 
 enum SCREENS {
@@ -111,7 +111,9 @@ export class BodyGameComponent implements AfterViewInit {
   finishGame(points : number)
   {
     this.setScreen(SCREENS.FINISH);
-    this.finishPanelComponent.instance.dialogText = LANG.pointsText + Math.floor(points);
+    this.finishPanelComponent.instance.dialogText = LANG.pointsText + "<h1>"+ Math.floor(points) + "</h1>";
+    this.finishPanelComponent.instance.setCenterText();
+    
 
   }
 
