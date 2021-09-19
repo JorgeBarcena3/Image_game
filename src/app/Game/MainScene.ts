@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { APIController } from "../Game/APIController"
 import { ImageMovingActor } from "./ImageMovingActor";
-import CONFIG from '../../assets/confing.json'
+import CONFIG from '../../assets/config.json'
 import { PhaserContainerComponent } from "../phaser-container/phaser-container.component";
 @Injectable({ providedIn: 'root' }) 
 export class MainScene extends Phaser.Scene {
@@ -60,6 +60,9 @@ export class MainScene extends Phaser.Scene {
 
   update() {
 
+    if(this.imagesPool.length <= 10)
+      this.restartImagePool();
+
     if(this.acitveImages.length === 0)
     {
       this.activeImage();
@@ -83,6 +86,7 @@ export class MainScene extends Phaser.Scene {
     }
 
   }
+  
 
   typeLetter(value: string) {
 
@@ -141,6 +145,11 @@ export class MainScene extends Phaser.Scene {
     image.hide();
     this.acitveImages.splice(index, 1);
     this.usedImages.push(image);
+  }
+
+  private restartImagePool() {
+    this.imagesPool.concat(this.usedImages);
+    this.usedImages = [];
   }
 
   private getTime() {
